@@ -8,6 +8,58 @@
 </head>
 <html>
     <body>
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <div style="float:right; background-color: black; color: aquamarine; height: 500px; width: 400px;">
+            <pre style="padding: 10px" id="console"></pre>
+        </div>
     </body>
 </html>
 <script src="bacteria.js"></script>
+<script src="draw.js"></script>
+<script>
+
+  var bact1 = new Bacteria(
+    uuidv4(), 
+    'bacillus', 
+    false, 
+    'Aquificae', 
+    'Aquificae', 
+    'Aquificales', 
+    'Hydrogenothermaceae', 
+    'Venenivibrio', 
+    'stagnispumantis',
+    50 + Math.random()*400,
+    50 + Math.random()*400,
+    4.8, 5.4, 5.8, // pH
+    45, 70, 75, // Celsius
+    1, 6, 10 // v/v Oxygen
+  )
+
+   var bact2 = new Bacteria(
+    uuidv4(), 
+    'coccus',
+    true, 
+    'Firmicutes', 
+    'Bacilli', 
+    'Bacillales', 
+    'Staphylococcaceae', 
+    'Staphylococcus', 
+    'aureus',
+    50 + Math.random()*400,
+    50 + Math.random()*400,
+    4.8, 5.4, 5.8, // pH
+    45, 70, 75, // Celsius
+    1, 6, 10 // v/v Oxygen
+  )
+  
+  drawCircle();
+
+  document.getElementById('console').append('Welcome.\n');
+  document.getElementById('console').append('You are watching\n')
+  document.getElementById('console').append(bact1.name +'\n');
+  document.getElementById('console').append('and\n');
+  document.getElementById('console').append(bact2.name +'\n');
+  plotBacteria(bact1);
+  plotBacteria(bact2);
+
+</script>

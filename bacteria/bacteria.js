@@ -6,7 +6,7 @@ function uuidv4 () {
   })
 }
 
-function Bacteria (id, shape, gram, p, c, o, f, g, s, x, y) {
+function Bacteria (id, shape, gram, p, c, o, f, g, s, x, y, pMin,pMed,pMax,tMin,tMed,tMax,oMin,oMed,oMax) {
   this.taxonomy = {
     'phylum': p,
     'class': c,
@@ -15,6 +15,12 @@ function Bacteria (id, shape, gram, p, c, o, f, g, s, x, y) {
     'genus': g,
     'species': s
   }
+  this.tolerance = {
+    'ph': [pMin,pMed,pMax],
+    'temp': [tMin,tMed,tMax],
+    'oxygen': [oMin,oMed,oMax]
+  }
+
   this.shape = shape
   this.position = {
     'x': x,
@@ -22,11 +28,27 @@ function Bacteria (id, shape, gram, p, c, o, f, g, s, x, y) {
   }
   this.id = id
   this.name = g + ' ' + s
-  this.gram_positive = gram
+  this.gram = gram
   this.greeting = function () {
     window.alert('Hi! I\'m ' + this.name + '.')
   }
 }
 
-var bact1 = new Bacteria(uuidv4(), 'Bacillus', true, null, null, null, null, 'Venenivibrio', 'stagnispumantis')
-bact1.greeting()
+// var bact1 = new Bacteria(
+//     uuidv4(), 
+//     'bacillus', 
+//     true, 
+//     'Aquificae', 
+//     'Aquificae', 
+//     'Aquificales', 
+//     'Hydrogenothermaceae', 
+//     'Venenivibrio', 
+//     'stagnispumantis',
+//     Math.random()*100,
+//     Math.random()*100,
+//     4.8, 5.4, 5.8, // pH
+//     45, 70, 75, // Celsius
+//     1, 6, 10 // v/v Oxygen
+//   )
+
+// bact1.greeting()
